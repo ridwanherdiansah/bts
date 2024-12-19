@@ -9,5 +9,9 @@ router.use(express.json());
 
 // Routes lainnya
 router.get('/', checklistControllers.getAllChecklist);
+router.post('/', checklistControllers.createChecklist);
+router.patch('/:id', checklistControllers.updateChecklist);
+router.delete('/:id', checklistControllers.deleteChecklist);
+
 
 export default router;

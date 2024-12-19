@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 19, 2024 at 10:07 AM
+-- Generation Time: Dec 19, 2024 at 10:27 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db`
+-- Database: `db_adhivasindo`
 --
 
 -- --------------------------------------------------------
@@ -38,6 +38,18 @@ CREATE TABLE `checklist` (
 
 INSERT INTO `checklist` (`id`, `name`) VALUES
 (1, 'a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `item`
+--
+
+CREATE TABLE `item` (
+  `id` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `id_checklis` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -74,6 +86,12 @@ ALTER TABLE `checklist`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `item`
+--
+ALTER TABLE `item`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -90,6 +108,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `checklist`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `item`
+--
+ALTER TABLE `item`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

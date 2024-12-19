@@ -3,6 +3,7 @@ import 'dotenv/config';
 import path from 'path';
 import authRoutes from './routes/auth';
 import checklistRoutes from './routes/checklist';
+import itemRoutes from './routes/item';
 
 import middlewareLogRequest from './middleware/logs';
 import jwtToken from './middleware/auth';
@@ -18,6 +19,7 @@ app.use(middlewareLogRequest);
 // Routes
 app.use('/auth', authRoutes);
 app.use('/checklist', jwtToken.auth, checklistRoutes);
+app.use('/checklist/:id/item', jwtToken.auth, itemRoutes);
 
 // Start server
 app.listen(PORT, () => {

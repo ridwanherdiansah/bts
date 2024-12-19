@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
-import ChecklistModels from '../models/checklist';
+import ItemModels from '../models/item';
 
-class ChecklistsControllers {
-    static getAllChecklist = async (req: Request, res: Response) => {
+class ItemControllers {
+    static getAllItem = async (req: Request, res: Response) => {
         try {
-            const [data] = await ChecklistModels.get();
+            const [data] = await ItemModels.get();
 
             res.json({
-                message: 'Get All Checklist',
+                message: 'Get All Item',
                 data: data
             });
         } catch (error:any) {
@@ -18,10 +18,10 @@ class ChecklistsControllers {
         }
     }
 
-    static createChecklist = async (req:Request, res:Response) => {
+    static createItem = async (req:Request, res:Response) => {
         try {
             const body = req.body;
-            const [data] = await ChecklistModels.create(body);
+            const [data] = await ItemModels.create(body);
 
             res.json({
                 message: 'Create Success',
@@ -35,11 +35,11 @@ class ChecklistsControllers {
         }
     }
 
-    static updateChecklist = async (req:Request, res:Response) => {
+    static updateItem = async (req:Request, res:Response) => {
         try {
             const body = req.body;
             const id = parseInt(req.params.id);
-            const [data] = await ChecklistModels.update(body, {id});
+            const [data] = await ItemModels.update(body, {id});
 
             res.json({
                 message: 'Updated Success',
@@ -53,10 +53,10 @@ class ChecklistsControllers {
         }
     }
 
-    static deleteChecklist = async (req:Request, res:Response) => {
+    static deleteItem = async (req:Request, res:Response) => {
         try {
             const id = parseInt(req.params.id);
-            const [data] = await ChecklistModels.destroy({id});
+            const [data] = await ItemModels.destroy({id});
 
             res.json({
                 message: 'Delete Success',
@@ -70,4 +70,4 @@ class ChecklistsControllers {
     }
 }
 
-export default ChecklistsControllers;
+export default ItemControllers;
